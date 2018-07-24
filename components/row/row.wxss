@@ -1,0 +1,63 @@
+
+
+.row-con{
+  width: 100%;
+}
+
+swiper{
+  height: 33.33vh;
+  position: relative;
+}
+
+swiper:before{
+  content: '';
+  display: block;
+  left: 0;
+  right: 0;
+  /* top: 0; */
+  bottom: 10%;
+  margin: auto;
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background-color: gray;
+}
+
+.line-row{
+  width: 100%;
+  left: 10%;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  display: block;
+  height: 1px;
+  margin: auto;
+  z-index: -1;
+  background-color: gray;
+}
+
+swiper-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.member-box{
+  position: relative;
+  overflow: visible;
+}
+
+.member{
+	height: 80%;
+	width: 80%;
+	box-sizing: border-box;
+  	border: solid 1px gray;
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+    background-color: #fff;
+}
+
+.selected{
+	border: blue solid 1px;
+}

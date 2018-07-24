@@ -1,0 +1,9 @@
+<view class="row-con">
+  <swiper previous-margin="250rpx" next-margin="250rpx" current="{{currentIndex}}" bindchange="itemChange">
+    <swiper-item wx:for="{{members}}" class="member-box" wx:key="id" bindtap="itemTap" data-index="{{index}}">
+      <view class="line-row" wx:if="{{index!==members.length-1}}"></view>
+      <view class="member {{item.id===selectedId?'selected':''}}">{{item.name}}</view>
+    </swiper-item>
+  </swiper>
+  <row members="{{current.members}}" wx:if="{{current.members}}" init-ids="{{initIds}}" selected-id="{{selectedId}}"></row>
+</view>
