@@ -5,5 +5,5 @@
       <view class="member {{item.id===selectedId?'selected':''}}">{{item.name}}</view>
     </swiper-item>
   </swiper>
-  <row members="{{current.members}}" wx:if="{{current.members}}" init-ids="{{initIds}}" selected-id="{{selectedId}}"></row>
+  <row members="{{current.members}}" wx:if="{{current.members&&initIds.length}}" init-ids="{{initIds}}" selected-id="{{selectedId}}"></row>
 </view>

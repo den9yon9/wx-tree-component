@@ -96,7 +96,8 @@ const tree = [{
 }]
 Page({
   data: {
-    tree: []
+    tree: [],
+    initId: 'id001222'
   },
 
   /**

@@ -13,7 +13,7 @@ Component({
           // initIds只在目录树载入时用一次，一秒后重置initIds为空
           setTimeout(_=>{
             this.setData({
-              initIds: []
+              initIds: ['xxxxx']
             })
           },1000)
         }

@@ -2,7 +2,7 @@ Component({
   properties: {
     members: {
       type: Array,
-      observer: function(members, oldValue) {
+      observer: function(members) {
         if (members) {
           // 每一行取中间元素
           let initIndex = Math.floor(members.length / 2)
@@ -17,21 +17,7 @@ Component({
       type: String
     },
     initIds: {
-      type: Array,
-      observer: function(initIds) {
-        let currentIndex = this.data.members.findIndex(n => initIds.indexOf(n.id) !== -1)
-        if (currentIndex !== -1) {
-          setTimeout(_ => {
-            this.setData({
-              currentIndex
-            })
-            this.triggerEvent('selectChange', this.data.members[this.data.currentIndex], {
-              bubbles: true,
-              composed: true
-            })
-          }, 100)
-        }
-      }
+      type: Array
     }
   },
 
@@ -41,12 +27,26 @@ Component({
   },
 
   ready() {
-    // 每一行取中间元素
-    let initIndex = Math.floor(this.data.members.length / 2)
-    this.setData({
-      current: this.data.members[initIndex],
-      currentIndex: initIndex
-    })
+    let initIds = this.data.initIds
+    let currentIndex = this.data.members.findIndex(n => initIds.indexOf(n.id) !== -1)
+    if (currentIndex !== -1) {
+      setTimeout(_ => {
+        this.setData({
+          currentIndex
+        })
+        this.triggerEvent('selectChange', this.data.members[this.data.currentIndex], {
+          bubbles: true,
+          composed: true
+        })
+      }, 100)
+    }else{
+      // 每一行取中间元素
+      let initIndex = Math.floor(this.data.members.length / 2)
+      this.setData({
+        current: this.data.members[initIndex],
+        currentIndex: initIndex
+      })
+    }
   },
 
   methods: {
